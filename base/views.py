@@ -3,4 +3,4 @@ from base.models import *
 
 
 def home(request):
-    return render(request, 'base.html')
+    return render(request, 'home.html')
