@@ -27,7 +27,7 @@ button {
 }
 :root {
   --offcanvas-width: 270px;
-  --topNavbarHeight: 56px;
+  --topNavbarHeight: 72px;
 }
 .sidebar-nav {
   width: var(--offcanvas-width);
@@ -38,6 +38,13 @@ button {
 }
 .sidebar-link .right-icon {
   display: inline-flex;
+}
+.dp{
+  height:200px;
+  width: 200px;
+  border-radius:100%;
+  border: 3px solid rgba(255, 0, 0, 0.7); /* Red border with 70% opacity */
+  padding: 3px; 
 }
 .sidebar-link[aria-expanded="true"] .right-icon {
   transform: rotate(180deg);
@@ -82,7 +89,8 @@ height: 60px;
 width: 60px;
 border-radius: 100%;
 object-fit: cover;
-border: 2.5px solid #CAEDFF; 
+border: 2px solid rgba(255, 0, 0, 0.7); /* Red border with 70% opacity */
+padding: 2px; 
 }
 
 .avatar{
@@ -116,6 +124,33 @@ background-color: #8ACDD7;
  background-color: #7ED7C1;
 color:white;
 }
+
+.content {
+  display: block;
+  text-align: center; /* Center the text within the container */
+}
+
+
+
+.content{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: vh; /* 100% of the viewport height */
+}
+@media (min-width: 768px) {
+  .content {
+      display: flex;
+      align-items: center;
+  }
+
+  .content img {
+      margin-right: 20px;
+  }
+}
     </style>
   </head>
   <body>
@@ -146,7 +181,7 @@ color:white;
     <!-- top navigation bar -->
     <!-- offcanvas -->
     <div
-      class="border-0 offcanvas offcanvas-start sidebar-nav bg-light"
+      class=" offcanvas offcanvas-start sidebar-nav bg-light"
       tabindex="-1"
       id="sidebar"
     >

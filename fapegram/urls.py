@@ -7,7 +7,8 @@ from base.views import *
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home)
+    path('',home),
+    path('profile', profile, name='profile')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 
