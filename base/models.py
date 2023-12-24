@@ -15,6 +15,11 @@ class Profile(models.Model):
     twitter = models.URLField(null=True, blank=True)
     insta = models.URLField(null=True, blank=True)
 
+    def get_img(self):
+        im = Art.objects.filter(prof=self).order_by('-id')[0]
+        return im.image
+    
+
     def __str__(self):
         return self.name
 
@@ -25,7 +30,7 @@ class Art(models.Model):
     image = models.FileField(upload_to='contents', null=True, blank=True)
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.prof.name)
     
 
 class Vids(models.Model):
@@ -33,7 +38,7 @@ class Vids(models.Model):
     video = models.FileField(upload_to='videos', null=True, blank=True)
 
     def __str__(self):
-        return str(self.user.username)
+        return str(self.prof.name)
     
 
 

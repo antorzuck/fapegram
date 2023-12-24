@@ -8,17 +8,17 @@
 <div class="row">
 
 
-  {% for i in img  %}
+  {% for i in pro  %}
 <div class="col-12 col-md-6">
 <div class="my-3">
-  <img class="rounded img-fluid thmb" src="https://fapel.com/content/v/l/vlad-o-chka/1000/vlad-o-chka_0804.jpg" alt="">
+  <img class="rounded img-fluid thmb" src="{{i.get_img.url}}" alt="">
   <br>
   
   <div class="my-2 img-info">
     <div class="d-flex">
-    <img style="background: #9DB2BF;" class="img-thumbnail img-fluid avatar" src="https://fapeza.com/media/m/i/mia-healey/1000/mia-healey_0001.jpg" alt="">
+    <img class="img-thumbnail img-fluid avatar" {% if i.dp %}  src="{{i.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/adventurer/svg?seed=Tinkerbell" {% endif %}alt="">
     <div>
-      <p class="mt-1 mb-0 text-dark">Bebe Rexa</p>
+      <a href="/profile/{{i.user.username}}"> <p class="mt-1 mb-0 text-dark">{{i.name}}</p> </a>
       <p class="mt-0 text-primary">99+ Photos</p>
     </div>
     </div>
