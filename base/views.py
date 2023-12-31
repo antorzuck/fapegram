@@ -13,5 +13,7 @@ def home(request):
 
 def profile(request, username):
     prof = Profile.objects.get(user__username=username)
-    context = {'prof': prof}
+    arts = Art.objects.filter(prof=prof).order_by('id')
+
+    context = {'prof': prof, 'arts':arts}
     return render(request, 'profile.html', context)

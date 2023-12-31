@@ -6,16 +6,16 @@
 
     <div class="text-center card-body content">
     <div class="brdr">
-        <img class=" dp" src="https://assets-global.website-files.com/61cb87c118979013b4f7938b/61cb87c118979000b0f794d1_mike-shinoda.jpeg" alt="Your Image">
+        <img class=" dp" {% if prof.dp %}  src="{{prof.dp.url}}" {% else %} src="https://robohash.org/{{prof.user.username}}.png" {% endif %}alt="">
      </div>
 <div class="my-auto ms-2">
-        <h2 class="my-2 username text-dark">mike_shinoda</h2>
-      <p class="text-muted alname">m_shi, p.jaj</p>
+        <h2 class="my-2 username text-dark">{{prof.user.username}}</h2>
+      <p class="text-muted alname">{{prof.bio}}</p>
   
 
-<span class="badge btnsex">OnlyFans</span>
-<span class="badge btnprimary">Instagram</span>
-<span class="badge btninfo">Twitter</span>
+<a href=""> <span class="badge btnsex">OnlyFans</span></a>
+<a href=""> <span class="badge btnwarn">Instagram</span></a>
+<a href=""> <span class="badge btndngr">Twitter</span></a>
 
 <br>
 <div class="my-3 d-flex justify-content-center">
@@ -34,16 +34,11 @@
 
 <div class="gallery text-center row">
 
-
+{% for art in arts %}
 <div class="col-6 col-md-4 p-1">
-<img class="gim img-fluid" src="https://fapoleaks.com/images/j/u/juicyjade9-nude/1/photo/juicyjade9-nude_0066.jpeg"/>
+<img class="gim img-fluid" src="{{art.image.url}}"/>
 </div>
-
-
-
-<div class="col-6 p-1 col-md-4">
-<img class="gim" src="https://fapoleaks.com/images/j/u/juicyjade9-nude/1/photo/juicyjade9-nude_0066.jpeg"/>
-</div>
+{% endfor %}
 
 
 

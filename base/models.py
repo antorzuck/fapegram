@@ -17,8 +17,14 @@ class Profile(models.Model):
 
     def get_img(self):
         im = Art.objects.filter(prof=self).order_by('-id')[0]
-        return im.image
-    
+        if im:
+            return im.image
+        else:
+            return False
+        
+    def lenim(self):
+        im =Art.objects.filter(prof=self)
+        return len(im)
 
     def __str__(self):
         return self.name

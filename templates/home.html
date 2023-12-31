@@ -7,8 +7,8 @@
 
 <div class="row">
 
-
   {% for i in pro  %}
+  {% if not i.lenim == 0 %}
 <div class="col-12 col-md-6">
 <div class="my-3">
   <img class="rounded img-fluid thmb" src="{{i.get_img.url}}" alt="">
@@ -16,7 +16,7 @@
   
   <div class="my-2 img-info">
     <div class="d-flex">
-    <img class="img-thumbnail img-fluid avatar" {% if i.dp %}  src="{{i.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/adventurer/svg?seed=Tinkerbell" {% endif %}alt="">
+    <img class="img-thumbnail img-fluid avatar" {% if i.dp %}  src="{{i.dp.url}}" {% else %} src="https://robohash.org/{{i.user.username}}.png" {% endif %}alt="">
     <div>
       <a href="/profile/{{i.user.username}}"> <p class="mt-1 mb-0 text-dark">{{i.name}}</p> </a>
       <p class="mt-0 text-primary">99+ Photos</p>
@@ -27,7 +27,9 @@
 
   </div>
 </div>
+{% endif %}
 {% endfor %}
+
 
 
 
