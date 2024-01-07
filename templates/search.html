@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+
+
+{% block body %}
+
+
+<div class="vh-100 container">
+<h1 class="text-secondary dis-6">Search on Fapegram</h1>
+<form method="get" action="{% url 'search' %}">
+<input name="q" class="border-0 form-control p-2"  placeholder="Type something..."/>
+<button type="submit" class="my-2 btn w-100 btn-dark">Search</button>
+</form>
+</div>
+
+{% endblock %}

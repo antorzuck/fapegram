@@ -74,6 +74,11 @@ button {
 body{
   background-color: #f0f2f5;
 }
+
+.dis-6{
+font-size:14pt;
+font-family: "Inter", sans-serif;
+}
 .logo{
   width: 120px;
 }
@@ -99,12 +104,23 @@ padding: 2px;
 .avatar{
 height: 45px;
 width:45px;
-border-radius:100%;
+border-radius:50em;
 background: linear-gradient(white, white) padding-box,
 linear-gradient(to right, #ff7e5f, #feb47b) border-box;  
-border-radius: 50em;
+
 border: 2px solid transparent;
  
+}
+
+.comments{
+height : 200px;
+overflow-y: scroll;
+}
+
+.avatarc{
+height: 45px;
+width:45px;
+border-radius:100%;
 }
 
 .thmb{
@@ -150,7 +166,7 @@ a{
 }
 .gim{
 
-width:auto;
+width:200px;
 height:180px;
 object-fit: cover;
 border-radius:5px;
@@ -204,7 +220,7 @@ font-size: 14pt;
 
  <a class="me-auto navbar-brand" href="/"><img class="logo" src="{% static "fapegram.png" %}"></a>
 
-<a class="px-1 btn btnsex btn-s"><i class="fa-solid fa-magnifying-glass"></i></a>
+<a href="/search/" class="px-1 btn btnsex btn-s"><i class="fa-solid fa-magnifying-glass"></i></a>
        <a class="px-1 btn btnwarn text-white btn-s mx-1">Live Sex</a>
        <a class="px-1 btn btndngr text-white btn-s">Chat</a>
     </nav>
@@ -240,7 +256,7 @@ font-size: 14pt;
 
 
            <li>
-            <a href="/" class="text-muted nav-link px-3 active">
+            <a href="https://tiksporn.pythonanywhere.com" target="__blank"  class="text-muted nav-link px-3 active">
               <span class="me-1"><i class="icon fa-solid fa-arrow-trend-up"></i></span>
               <span>Videos</span>
             </a>

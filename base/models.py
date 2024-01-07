@@ -14,6 +14,7 @@ class Profile(models.Model):
     onlyfans = models.URLField(null=True, blank=True)
     twitter = models.URLField(null=True, blank=True)
     insta = models.URLField(null=True, blank=True)
+    likex = models.IntegerField(default=0)
 
     def get_img(self):
         im = Art.objects.filter(prof=self).order_by('-id')[0]
@@ -21,6 +22,13 @@ class Profile(models.Model):
             return im.image
         else:
             return False
+    def img_count(self):
+        im = Art.objects.filter(prof=self)
+        return len(im)
+
+    def total_likes(self):
+        return self.likex
+
         
     def lenim(self):
         im =Art.objects.filter(prof=self)
@@ -47,6 +55,16 @@ class Vids(models.Model):
         return str(self.prof.name)
     
 
+
+
+class Comment(models.Model):
+    name = models.CharField(max_length=100)
+    photo = models.ForeignKey(Art, on_delete=models.CASCADE)
+    comm = models.TextField()
+
+class Like(models.Model):
+    art = models.ManyToManyField(Art)
+    ip = models.CharField(max_length=100)
 
 
 @receiver(post_save, sender=User)

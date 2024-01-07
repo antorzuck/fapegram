@@ -11,6 +11,7 @@
   {% if not i.lenim == 0 %}
 <div class="col-12 col-md-6">
 <div class="my-3">
+<a href="/{{i.user.username}}">
   <img class="rounded img-fluid thmb" src="{{i.get_img.url}}" alt="">
   <br>
   
@@ -18,13 +19,13 @@
     <div class="d-flex">
     <img class="img-thumbnail img-fluid avatar" {% if i.dp %}  src="{{i.dp.url}}" {% else %} src="https://robohash.org/{{i.user.username}}.png" {% endif %}alt="">
     <div>
-      <a href="/profile/{{i.user.username}}"> <p class="mt-1 mb-0 text-dark">{{i.name}}</p> </a>
-      <p class="mt-0 text-primary">99+ Photos</p>
+      <a href="/{{i.user.username}}"> <p class="mt-1 mb-0 text-dark">{{i.name}}</p> </a>
+      <p class="mt-0 text-primary">{{i.img_count}}+ Photos</p>
     </div>
     </div>
 
   </div>
-
+</a>
   </div>
 </div>
 {% endif %}

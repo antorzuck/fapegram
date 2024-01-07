@@ -20,9 +20,9 @@
 <br>
 <div class="my-3 d-flex justify-content-center">
 
-<p class="text-muted">60<br> <b>Items</b></p>
+<p class="text-muted">{{prof.img_count}}<br> <b>Items</b></p>
 <p class="mx-5 divider text-muted"></p>
-<p class="text-muted">10<br><b> Likes</b></p>
+<p class="text-muted">{{prof.total_likes}}<br><b> Likes</b></p>
 
 </div>
        
@@ -36,7 +36,9 @@
 
 {% for art in arts %}
 <div class="col-6 col-md-4 p-1">
+<a href="/{{art.prof.user.username}}/{{art.id}}">
 <img class="gim img-fluid" src="{{art.image.url}}"/>
+</a>
 </div>
 {% endfor %}
 

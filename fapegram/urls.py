@@ -8,7 +8,11 @@ from base.views import *
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home),
-    path('profile/<username>', profile, name='profile')
+    path('<username>', profile, name='profile'),
+    path('<username>/<id>/', view, name='view'),
+    path('search/', search, name='search'),
+    path('comment/', comment, name='comment'),
+    path('like/', like, name='like')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

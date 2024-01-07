@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+  <div class="row my-5">
+    
+    
+    <div class="my-1 col-12 col-md-8">
+    
+    <div class="card-body text-center bg-white">
+  <main class=" bg-white">
+<a href="/{{art.prof.user}}">
+  <div class"model-info d-flex">
+<div>
+   <img class="card-img-top avatar" src="{{art.prof.dp.url}}" alt="{{art.prof.name}}"/>
+ </div> <div>
+
+   <p>{{art.prof.user.username}}</p>
+</div>  </div>
+</a>
+<hr>
+<a href="{{art.image.url}}"><img class="img-fluid" src="{{art.image.url}}"/>
+ </a> </main>
+<br>
+<div class="text-center">
+<form action="{% url 'like' %}"  method="post">
+{% csrf_token %}
+<input type="hidden" name="pid" value="{{art.id}}"/>
+<button type="submit" class="btn btn-danger" href="">
+<i class="fa-regular fa-heart"></i>({{like}})</button>
+</form>
+</div>
+</div>
+</div>
+
+
+<div class="my-1 col-12 col-md-4">
+<div class="card-body bg-white">
+<form class="my-3"  method="post" action="{% url 'comment' %}">
+{% csrf_token %}
+<input type="hidden" name="pid" value="{{art.id}}"/>
+<textarea name="bod" class="form-control" placeholder="Write a comment" row="3"></textarea>
+
+<button type="submit"  class="btn btn-dark w-100 my-1"><i class="fa-regular fa-comment"></i> Post</button>
+
+</form>
+
+
+<br>
+<div class="comments">
+{% for c in com %}
+<div class="mt-2 mx-2 card-body img-thumbnail d-flex">
+<img class="avatarc" src="https://api.dicebear.com/7.x/bottts/svg?seed={{c.name}}" />
+<p class="mx-1 my-auto">{{c.comm}}</p>
+</div>
+{% endfor %}
+</div>
+
+
+</div>
+</div>
+
+
+    </div>
+</div>
+{% endblock %}
