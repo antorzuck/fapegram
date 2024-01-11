@@ -1,0 +1,9 @@
+{% extends 'base.html' %}  
+
+<title>Random onlyfans models nude leaks photos</title>
+
+
+{% block body %}  <div class="text-center container">  <div class="row"> {% for p in prof %} <div class="mt-2 col-12 col-md-6"> <div class="p-3 card-body bg-white img-thumbnail">  {% if p.dp %}<a href="/{{p.user}}"> <img class="img-fluid rounded-circle w-50" src={{p.dp.url}}/></a> {% else %} <a href="/{{p.user}}"> <img class="img-fluid rounded-circle w-50" src="https://api.dicebear.com/7.x/initials/svg?seed={{p.name}}"/></a> {% endif %} </br> <a href="/{{p.user}}"> <name class="my-3 text-muted">{{p.name}}</name></a> <div class="my-3 d-flex justify-content-center">  <p class="text-muted">{{p.img_count}}<br> <b>Photos</b></p> <p class="mx-5 divider text-muted"></p> <p class="text-muted">{{p.total_likes}}<br><b> Likes</b></p>  </div> <a href="/{{p.user}}" class="my-2 btn btn-dark w-100">See Profile</a> </div> </div> {% endfor %}   </div>  </div>    <center> {% if prof.has_previous %} <a href="?q={{q}}&page={{prof.previous_page_number}}" class="my-3 btn btn-sm btn-primary"> Previous </a> {% endif %} {% if prof.has_next %} 
+
+
+<a href="?q={{q}}&page={{prof.next_page_number}}" class="my-3 btn btn-sm btn-primary"> Next </a> {% endif %} </center>    {% endblock %}

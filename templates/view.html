@@ -3,40 +3,49 @@
 {% block body %}
 <div class="container">
   <div class="row my-5">
-    
-    
-    <div class="my-1 col-12 col-md-8">
-    
-    <div class="card-body text-center bg-white">
-  <main class=" bg-white">
-<a href="/{{art.prof.user}}">
-  <div class"model-info d-flex">
-<div>
-   <img class="card-img-top avatar" src="{{art.prof.dp.url}}" alt="{{art.prof.name}}"/>
- </div> <div>
 
-   <p>{{art.prof.user.username}}</p>
-</div>  </div>
-</a>
-<hr>
-<a href="{{art.image.url}}"><img class="img-fluid" src="{{art.image.url}}"/>
- </a> </main>
-<br>
-<div class="text-center">
-<form action="{% url 'like' %}"  method="post">
+
+    <div class="my-1 col-12 col-md-8">
+
+  <div class="">
+    
+    
+    <div class="post-card">
+      <a href="{{art.image.url}}">
+      <img src="{{art.image.url}}" class="post-image" alt="Post Image">
+      </a>
+      <div class="user-info d-flex align-items-center">
+        <div>
+        <img class="my-auto avatar" {% if art.prof.dp %} src="{{art.prof.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{art.prof}}" {% endif %} class="user-avatar" alt="User Avatar">
+        </div>
+        <div>
+          <div class=""> <a href="/{{art.prof.user}}"><p class="mx-1 mt-3"> {{art.prof.user.username}}</p></a>
+          </div>
+         
+        </div>
+        
+<div class="ms-auto"><form action="{% url 'like' %}"  method="post">
 {% csrf_token %}
+<input type="hidden" name="usr" value="{{art.prof.user.username}}"/>
 <input type="hidden" name="pid" value="{{art.id}}"/>
-<button type="submit" class="btn btn-danger" href="">
-<i class="fa-regular fa-heart"></i>({{like}})</button>
-</form>
-</div>
-</div>
+<button type="submit" class="btn btn-danger btn-sm">
+<i class="fa-regular fa-heart"></i></button>
+</form> </div>
+
+
+
+      </div>
+      <div class="post-caption">
+        <p>{{like}} People likes</p>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <div class="my-1 col-12 col-md-4">
-<div class="card-body bg-white">
-<form class="my-3"  method="post" action="{% url 'comment' %}">
+<div class="post-card bg-white">
+<form class="my-3 px-3"  method="post" action="{% url 'comment' %}">
 {% csrf_token %}
 <input type="hidden" name="pid" value="{{art.id}}"/>
 <textarea name="bod" class="form-control" placeholder="Write a comment" row="3"></textarea>

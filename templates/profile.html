@@ -6,7 +6,7 @@
 
     <div class="text-center card-body content">
     <div class="brdr">
-        <img class=" dp" {% if prof.dp %}  src="{{prof.dp.url}}" {% else %} src="https://robohash.org/{{prof.user.username}}.png" {% endif %}alt="">
+        <img class=" dp" {% if prof.dp %}  src="{{prof.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{prof.user.username}}" {% endif %}alt="">
      </div>
 <div class="my-auto ms-2">
         <h2 class="my-2 username text-dark">{{prof.user.username}}</h2>
@@ -42,7 +42,16 @@
 </div>
 {% endfor %}
 
+<center>
+{% if arts.has_previous %}
 
+<a href="?page={{arts.previous_page_number}}" class="my-3 btn btn-sm btn-primary"> Previous </a>
+  {% endif %}
+  
+  {% if arts.has_next %}
+       <a href="?page={{arts.next_page_number}}" class="my-3 btn btn-sm btn-primary"> Next </a>
+       {% endif %}
+</center>
 
 </div>
 

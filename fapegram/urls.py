@@ -12,7 +12,10 @@ urlpatterns = [
     path('<username>/<id>/', view, name='view'),
     path('search/', search, name='search'),
     path('comment/', comment, name='comment'),
-    path('like/', like, name='like')
+    path('like/', like, name='like'),
+    path('popular/', popu, name='popular'),
+    path('random/', rand, name='random'),
+    path('contact/', contact, name='contact')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 

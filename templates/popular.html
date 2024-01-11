@@ -1,10 +1,10 @@
+
 {% extends 'base.html' %}
 
 
 {% block body %}
 
 <div class="text-center container">
- <h1 class="display-6 text-dark"> Search Result For <span class="text-info"> "{{q}}" </span> </h1>
 <div class="row">
 {% for p in prof %}
 <div class="mt-2 col-12 col-md-6">
@@ -38,16 +38,14 @@
 
 
 <center> {% if prof.has_previous %}
-<a href="?q={{q}}&page={{prof.previous_page_number}}"
+<a href="?page={{prof.previous_page_number}}"
 class="my-3 btn btn-sm btn-primary"> Previous </a>
 {% endif %}
 {% if prof.has_next %}
-<a href="?q={{q}}&page={{prof.next_page_number}}"
+<a href="?page={{prof.next_page_number}}"
 class="my-3 btn btn-sm btn-primary"> Next </a>
 {% endif %} </center>
 
 
 
 {% endblock %}
-
-

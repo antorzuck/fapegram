@@ -17,8 +17,8 @@
   
   <div class="my-2 img-info">
     <div class="d-flex">
-    <img class="img-thumbnail img-fluid avatar" {% if i.dp %}  src="{{i.dp.url}}" {% else %} src="https://robohash.org/{{i.user.username}}.png" {% endif %}alt="">
-    <div>
+    <img class="img-thumbnail img-fluid avatar" {% if i.dp %}  src="{{i.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{i.user.username}}" {% endif %} alt="avatar">
+    <div class="mx-1">
       <a href="/{{i.user.username}}"> <p class="mt-1 mb-0 text-dark">{{i.name}}</p> </a>
       <p class="mt-0 text-primary">{{i.img_count}}+ Photos</p>
     </div>
@@ -31,7 +31,16 @@
 {% endif %}
 {% endfor %}
 
+<center>
+{% if pro.has_previous %}
 
+<a href="?page={{pro.previous_page_number}}" class="my-3 btn btn-sm btn-primary"> Previous </a>
+  {% endif %}
+  
+  {% if pro.has_next %}
+       <a href="?page={{pro.next_page_number}}" class="my-3 btn btn-sm btn-primary"> Next </a>
+       {% endif %}
+</center>
 
 
 

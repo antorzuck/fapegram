@@ -197,6 +197,48 @@ font-size: 12pt;
 .navi{
 font-size: 14pt;
 }
+
+    .post-container {
+      max-width: 600px;
+      margin: 50px auto;
+    }
+
+    .post-card {
+      border: 1px solid #ccc;
+      background-color: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 20px;
+    }
+
+    .post-image {
+      width: 100%;
+      height: auto;
+      border-bottom: 1px solid #ccc;
+    }
+
+    .user-info {
+      padding: 16px;
+      display: flex;
+    }
+
+    .user-avatar {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      margin-right: 10px;
+    }
+
+    .post-caption {
+      padding: 15px;
+    }
+
+    .timestamp {
+      color: #999;
+    }
+
+
+
     </style>
   </head>
   <body>
@@ -248,16 +290,17 @@ font-size: 14pt;
             </li>
 
            <li>
-              <a href="/" class="text-muted nav-link px-3 active">
-                <span class="me-1"><i class="icon fa-solid fa-video"></i></span>
-                <span>Trending</span>
+              <a href="/popular/" class="text-muted nav-link px-3 active">
+             
+                 <span class="me-1"><i class="icon fa-solid fa-arrow-trend-up"></i></span>
+                <span>Popular</span>
               </a>
             </li>
 
 
            <li>
             <a href="https://tiksporn.pythonanywhere.com" target="__blank"  class="text-muted nav-link px-3 active">
-              <span class="me-1"><i class="icon fa-solid fa-arrow-trend-up"></i></span>
+             <span class="me-1"><i class="icon fa-solid fa-video"></i></span>
               <span>Videos</span>
             </a>
           </li>
@@ -265,7 +308,7 @@ font-size: 14pt;
             <li class="mb-2"><hr class="dropdown-divider bg-light" /></li>
 
             <li>
-              <a href="/" class="text-muted nav-link px-3 active">
+              <a href="/random/" class="text-muted nav-link px-3 active">
                 <span class="me-1"><i class="icon fa-solid fa-shuffle"></i></span>
                 <span>Random</span>
               </a>
@@ -274,7 +317,7 @@ font-size: 14pt;
        
        
             <li>
-              <a href="#" class="text-muted nav-link px-3">
+              <a href="/contact/" class="text-muted nav-link px-3">
                 <span class="me-1"><i class="icon fa-solid fa-bullhorn"></i></span>
                 <span>Promotion</span>
               </a>
@@ -295,11 +338,13 @@ font-size: 14pt;
     <!-- offcanvas -->
     <main class="mt-3 pt-3">
       <div class="container-fluid">
-      <div class="top">
-<div>
-     <img class="" src="https://fapello.com/content/k/e/kendraa-lane/1000/kendraa-lane_0447.jpg">
-</div>
 
+      <div class="top">
+{% for p in pop %}
+<div>
+     <img class="" src="{{p.dp.url}}" alt="popular nude models">
+</div>
+{% endfor %}
 
  </div>
       
