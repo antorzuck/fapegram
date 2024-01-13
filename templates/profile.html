@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 
-{% block desc %}The best social network with a lot of leaked girls from Onlyfans, Patreon and other nude content platforms.{% endblock %}
-{% block car %}https://fapegram.com{% endblock %}
+{% block desc %}See all the nude and leaks of {{prof.bio}} from onlyfans, reddit, patreon and many more sites!{% endblock %}
+{% block car %}https://fapegram.com/model/{{prof.user.username}}{% endblock %}
 {% block title %}{{prof.bio}} Leaks Nudes from Onlyfans{% endblock %}
 
 {% block body %}
@@ -10,25 +10,25 @@
 		{
 			"@context": "https://schema.org",
 			"@type": "Person",
-			"image": "{% if prof.dp %} {{prof.dp.url}} {% endif %}"
+			"image": "https://fapegram.com/{% if prof.dp %}{{prof.dp.url}}{% endif %}"
 			"jobTitle": "Model",
 			"name": "{{prof.name}}",
-			"url": "https://fapegram.com/{{prof.user.username}}"
+			"url": "https://fapegram.com/model/{{prof.user.username}}"
 		}
 </script>
 
     <div class="text-center card-body content">
     <div class="brdr">
-        <img class=" dp" {% if prof.dp %}  src="{{prof.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{prof.user.username}}" {% endif %}alt="">
+        <img class=" dp" {% if prof.dp %}  src="{{prof.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{prof.user.username}}" {% endif %} alt="{{prof.user.username}}">
      </div>
 <div class="my-auto ms-2">
         <h2 class="my-2 username text-dark">{{prof.user.username}}</h2>
       <p class="text-muted alname">{{prof.bio}}</p>
   
 
-<a href="{{prof.onlyfans}}"> <span class="badge btnsex">OnlyFans</span></a>
-<a href="{{prof.insta}}"> <span class="badge btnwarn">Instagram</span></a>
-<a href="{{prof.twitter}}"> <span class="badge btndngr">Twitter</span></a>
+<a target="__blank" href="{{prof.onlyfans}}"> <span class="badge btnsex">OnlyFans</span></a>
+<a target="__blank" href="{{prof.insta}}"> <span class="badge btnwarn">Instagram</span></a>
+<a target="__blank" href="{{prof.twitter}}"> <span class="badge btndngr">Twitter</span></a>
 
 <br>
 <div class="my-3 d-flex justify-content-center">

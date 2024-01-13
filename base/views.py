@@ -14,7 +14,9 @@ def robots_txt(request):
     return HttpResponse("\n".join(lines), content_type="text/plain")
 
 
-
+def upload(request, username):
+    
+    return render(request, 'upload.html')
 
 def home(request):
     pro = Profile.objects.all().order_by('-id')

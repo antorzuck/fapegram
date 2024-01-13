@@ -1,6 +1,10 @@
 {% extends 'base.html' %}
 
 
+{% block desc %}The best social network with a lot of leaked girls from Onlyfans, Patreon and other nude content platforms.{% endblock %}
+{% block car %}https://fapegram.com/random/{% endblock %}
+{% block title %}{{q}} Search Results - Fapegram{% endblock %}
+
 {% block body %}
 
 <div class="text-center container">
@@ -26,6 +30,9 @@
 
 </div>
 <a href="/model/{{p.user}}" class="my-2 btn btn-dark w-100">See Profile</a>
+{% if user.is_authenticated and user.is_staff %}
+<a href="/model/upload/{{p.user}}" class="my-2 btn btn-success w-100">Upload</a>
+{% endif %}
 </div>
 </div>
 {% endfor %}

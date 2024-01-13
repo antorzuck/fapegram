@@ -28,6 +28,7 @@ urlpatterns = [
     path('random/', rand, name='random'),
     path('contact/', contact, name='contact'),
     path('dmca/', dmca, name='dmca'),
+   
     path("model/", include("base.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

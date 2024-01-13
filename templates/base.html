@@ -345,8 +345,9 @@ font-size: 14pt;
       <div class="top">
 {% for p in pop %}
 <div>
+  
   <a href="/model/{{p.user.username}}">
-     <img class="" src="{% if p.dp %} {{p.dp.url}} {% endif %}" alt="popular nude models">
+     <img class="" {% if p.dp %}  src="{{p.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{p.user.username}}" {% endif %} alt="{{p.user.username}}">
 </a>
 </div>
 {% endfor %}

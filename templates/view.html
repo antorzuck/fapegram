@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
 
+{% block desc %}See all the update nude leaks of {{art.prof.bio}} here. don't miss it.{% endblock %}
+{% block car %}https://fapegram.com/{{art.prof.user.username}}/{{art.id}}/{% endblock %}
+{% block title %}{{art.prof.bio}} Nude Leaks From Onlyfans and Patreon Image #{{art.id}}{% endblock %}
+
 {% block body %}
 <div class="container">
   <div class="row my-5">
@@ -12,11 +16,11 @@
     
     <div class="post-card">
       <a href="{{art.image.url}}">
-      <img src="{{art.image.url}}" class="post-image" alt="Post Image">
+      <img src="{{art.image.url}}" class="post-image" alt="{{art.prof.user.username}}">
       </a>
       <div class="user-info d-flex align-items-center">
         <div>
-        <img class="my-auto avatar" {% if art.prof.dp %} src="{{art.prof.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{art.prof}}" {% endif %} class="user-avatar" alt="User Avatar">
+        <img class="my-auto avatar" {% if art.prof.dp %} src="{{art.prof.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{art.prof}}" {% endif %} class="user-avatar" alt="{{art.prof.user.username}}">
         </div>
         <div>
           <div class=""> <a href="/model/{{art.prof.user}}"><p class="mx-1 mt-3"> {{art.prof.user.username}}</p></a>

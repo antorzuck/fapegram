@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+
+<div class="container mt-5">
+    <h2>Upload image</h2>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+      <div class="form-group">
+        <label for="images">Select Images:</label>
+        <input type="hidden" name="usr"/>
+        <input type="file" class="form-control-file" id="images" name="images" multiple accept="image/*">
+      </div>
+      <button type="submit" class="btn btn-primary">Upload Images</button>
+    </form>
+  </div>
+
+{% endblock %}
