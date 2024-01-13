@@ -15,8 +15,16 @@ def robots_txt(request):
 
 
 def upload(request, username):
-    
-    return render(request, 'upload.html')
+    context = {'u':username}
+    if request.method == 'POST':
+        u = request.POST.get('usr')
+        im = request.FILES.getlist('img')
+        pf = Profile.objects.get(user__username=u)
+        print(u)
+        for i in im:
+            Art.objects.create(prof=pf, image=i)
+        return redirect('/')
+    return render(request, 'upload.html', context)
 
 def home(request):
     pro = Profile.objects.all().order_by('-id')
