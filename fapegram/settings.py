@@ -15,7 +15,7 @@ SECRET_KEY = 'django-insecure-!4lb4h_q3w2jp1=p7l7)&c2-@@(vf&ie3f$i4y2f_rk=iwvy$$
 DEBUG = True
 
 ALLOWED_HOSTS = ['*']
-
+SITE_ID = 1
 
 # Application definition
 
@@ -28,7 +28,9 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     #custom apps
-    'base'
+    'base',
+    'django.contrib.sites',
+    'django.contrib.sitemaps',
 ]
 
 MIDDLEWARE = [
@@ -39,6 +41,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+     #custom middlewares
+     'base.middleware.maintenance_middleware'
 ]
 
 ROOT_URLCONF = 'fapegram.urls'

@@ -67,6 +67,18 @@ class Like(models.Model):
     ip = models.CharField(max_length=100)
 
 
+
+class DMCA(models.Model):
+    email = models.EmailField()
+    url = models.URLField()
+    reason = models.TextField()
+
+    def __str__(self):
+        return f'Removal Request by {self.email}'
+
+
+
+
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:

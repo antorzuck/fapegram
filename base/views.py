@@ -5,6 +5,17 @@ from django.http import  HttpResponse
 import random
 
 
+
+def robots_txt(request):
+    lines = [
+        "User-agent: *",
+        "Disallow: /admin"
+    ]
+    return HttpResponse("\n".join(lines), content_type="text/plain")
+
+
+
+
 def home(request):
     pro = Profile.objects.all().order_by('-id')
     paginator = Paginator(pro, 30)
@@ -103,3 +114,12 @@ def contact(request):
    return render(request, 'contact.html')
 
 
+def dmca(request):
+   if request.method == 'POST':
+      em = request.POST.get('e')
+      ur = request.POST.get('u')
+      re = request.POST.get('r')
+      DMCA.objects.create(email=em, url=ur, reason=re)
+      c = {'msg' : "Form submit successfully. We'll review into this asap!"}
+      return render(request, 'dmca.html',context=c)
+   return render(request, 'dmca.html')

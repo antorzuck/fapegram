@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+
+
+
+<div class="container">
+    <h2 class="text-dark text-center mb-4">DMCA and Content Removal Request</h2>
+    
+    
+    <div class="card-body bg-white py-5">
+    {% if msg %}
+<div class="alert alert-info" role="alert">
+  {{msg}}
+</div>
+{% endif %}
+    <form method="post" action="{% url 'dmca' %}">
+   {% csrf_token %}
+      <div class="form-group">
+        <label for="email">Your Email:</label>
+        <input name="e" type="email" class="mb-2 form-control" id="email" placeholder="Enter your email" required>
+      </div>
+      <div class="form-group">
+        <label for="url">URL of Content to Remove:</label>
+        <input name="u" type="url" class="mb-2 form-control" id="url" placeholder="Enter the URL" required>
+      </div>
+      <div class="form-group">
+        <label for="reason">Reason for Removal:</label>
+        <textarea name="r" class="mb-2 form-control" id="reason" rows="4" placeholder="Briefly explain the reason for removal" required></textarea>
+      </div>
+      <button type="submit" class="w-100 mt-2 btn btn-primary">Submit Request</button>
+    </form>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock %}

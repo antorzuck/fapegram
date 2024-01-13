@@ -10,13 +10,13 @@
 <div class="mt-2 col-12 col-md-6">
 <div class="p-3 card-body bg-white img-thumbnail">
 
-{% if p.dp %}<a href="/{{p.user}}">
+{% if p.dp %}<a href="/model/{{p.user}}">
 <img class="img-fluid rounded-circle w-50" src={{p.dp.url}}/></a>
-{% else %} <a href="/{{p.user}}">
+{% else %} <a href="/model/{{p.user}}">
 <img class="img-fluid rounded-circle w-50" src="https://api.dicebear.com/7.x/initials/svg?seed={{p.name}}"/></a>
 {% endif %}
 </br>
-<a href="/{{p.user}}">
+<a href="/model/{{p.user}}">
 <name class="my-3 text-muted">{{p.name}}</name></a>
 <div class="my-3 d-flex justify-content-center">
 
@@ -25,7 +25,7 @@
 <p class="text-muted">{{p.total_likes}}<br><b> Likes</b></p>
 
 </div>
-<a href="/{{p.user}}" class="my-2 btn btn-dark w-100">See Profile</a>
+<a href="/model/{{p.user}}" class="my-2 btn btn-dark w-100">See Profile</a>
 </div>
 </div>
 {% endfor %}

@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
 
+{% block desc %}The best social network with a lot of leaked girls from Onlyfans, Patreon and other nude content platforms.{% endblock %}
+{% block car %}https://fapegram.com{% endblock %}
+{% block title %}Fapegram — Find Nudes & Leaks From Onlyfans and Patreon{% endblock %}
 
 
 {% block body %}
@@ -11,7 +14,7 @@
   {% if not i.lenim == 0 %}
 <div class="col-12 col-md-6">
 <div class="my-3">
-<a href="/{{i.user.username}}">
+<a href="model/{{i.user.username}}">
   <img class="rounded img-fluid thmb" src="{{i.get_img.url}}" alt="">
   <br>
   
@@ -19,7 +22,7 @@
     <div class="d-flex">
     <img class="img-thumbnail img-fluid avatar" {% if i.dp %}  src="{{i.dp.url}}" {% else %} src="https://api.dicebear.com/7.x/initials/svg?seed={{i.user.username}}" {% endif %} alt="avatar">
     <div class="mx-1">
-      <a href="/{{i.user.username}}"> <p class="mt-1 mb-0 text-dark">{{i.name}}</p> </a>
+      <a href="model/{{i.user.username}}"> <p class="mt-1 mb-0 text-dark">{{i.name}}</p> </a>
       <p class="mt-0 text-primary">{{i.img_count}}+ Photos</p>
     </div>
     </div>
